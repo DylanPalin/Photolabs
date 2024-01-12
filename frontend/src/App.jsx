@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PhotoListItem from './components/PhotoListItem';
+import PhotoList from './components/PhotoList';
 import './App.scss';
 
 
@@ -19,7 +19,7 @@ const sampleDataForPhotoListItem = {
 function App() {
   return (
     <div className="App">
-      <PhotoListItem photo={sampleDataForPhotoListItem}  />
+      <PhotoList />
     </div>
   );
 };
