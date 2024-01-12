@@ -13,12 +13,7 @@ function PhotoFavButton() {
   return (
     <div className="photo-list__fav-icon">
       <div className="photo-list__fav-icon-svg">
-        <button
-          onClick={handleFavClick}
-          className={isFavorited ? "favorited" : ""}
-        >
-          <FavIcon isFavorited={isFavorited} />
-        </button>
+          <FavIcon onClick={handleFavClick} className={isFavorited ? "favorited" : ""} />
       </div>
     </div>
   );
