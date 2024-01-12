@@ -57,21 +57,12 @@ const sampleDataForPhotoList = [
   },
 ];
 
-const PhotoList = () => {
-  return (
-    <div>
-      {sampleDataForPhotoList.map((photo, index) => (
-        <PhotoListItem 
-          key={index} 
-          photo={{
-            imageSource: photo.urls.regular,
-            username: photo.user.username,
-            location: photo.location
-          }} 
-        />
-      ))}
-    </div>
-  );
-};
+const PhotoList = ({ numPhotos }) => (
+  <div>
+    {Array.from({ length: numPhotos }).map((_, index) => (
+      <PhotoListItem key={index} photo={sampleDataForPhotoList[index]} />
+    ))}
+  </div>
+);
 
 export default PhotoList;
