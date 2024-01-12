@@ -3,6 +3,7 @@ import "../styles/PhotoListItem.scss";
 
 
 const PhotoListItem = ({ photo }) => {
+
   return (
     <div className="photo-list__item">
       <img
