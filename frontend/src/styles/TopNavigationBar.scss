@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 8px;
   align-items: center;
+  padding: 8px;
+  margin-right: 1.5em;
   -webkit-box-shadow: 0 4px 6px -6px #222;
   -moz-box-shadow: 0 4px 6px -6px #222;
   box-shadow: 0 4px 6px -6px #222;
@@ -17,4 +18,10 @@
   color: #111;
   text-underline-position: auto;
   margin-left: 24px;
+}
+
+.top-nav-bar__right {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
 }
