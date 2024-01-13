@@ -11,12 +11,19 @@ const PhotoListItem = ({ photo }) => (
       alt={photo.user.username}
     />
     <div className="photo-list__user-details">
+      <img
+        className="photo-list__user-profile"
+        src={photo.user.profile}
+        alt={`${photo.user.username}'s profile`}
+      />
       <div className="photo-list__user-info">
         <span>{photo.user.username}</span>
+        <div className="photo-list__location">
+          <span>
+          {photo.location.city}, {photo.location.country}
+        </span>          
+        </div>
       </div>
-      <span>
-        {photo.location.city}, {photo.location.country}
-      </span>
     </div>
   </div>
 );

@@ -8,12 +8,12 @@ function PhotoFavButton() {
 
   const handleFavClick = useCallback(() => {
     setIsfavorited(prevIsFavorited => !prevIsFavorited);
-}, []);
+  }, []);
 
   return (
-    <div className="photo-list__fav-icon">
+    <div className={`photo-list__fav-icon ${isFavorited ? "favorited" : ""}`} onClick={handleFavClick}>
       <div className="photo-list__fav-icon-svg">
-          <FavIcon onClick={handleFavClick} className={isFavorited ? "favorited" : ""} />
+        <FavIcon />
       </div>
     </div>
   );
