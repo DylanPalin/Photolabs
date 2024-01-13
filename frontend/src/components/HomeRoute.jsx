@@ -5,7 +5,7 @@ import "./HomeRoute";
 
 // Note: Rendering a single component to build components in isolation
 const HomeRoute = () => (
-  <div className="HomeRoute">
+  <div className="home-route">
     <TopNavigationBar />
     <PhotoList numPhotos={3} />
   </div>
