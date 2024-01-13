@@ -1,26 +1,21 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "../styles/TopNavigationBar.scss";
 import TopicList from "./TopicList";
 import FavBadge from "./FavBadge";
 
-const TopNavigation = ({ topics }) => {
+const TopNavigation = ({ onTopicClick, topics, favoritePhotos }) => {
   
   const [showTopic, setshowTopic] = useState(null);
   const [isFavPhotoExist, setIsFavPhotoExist] = useState(false);
 
-const onTopicClick = useCallback((topicId) => {
-    setshowTopic(topicId);
-  }, []);
-
+  useEffect(() => {
+    setIsFavPhotoExist(favoritePhotos && favoritePhotos.length > 0);
+  }, [favoritePhotos]);
+  
   const handleTopicClick = (topicId) => {
     setshowTopic(topicId);
   };
 
-  const onFavClick = useCallback(() => {
-    setIsFavPhotoExist((prevIsFavPhotoExist) => !prevIsFavPhotoExist);
-  });
-
-  
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
