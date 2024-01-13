@@ -1,16 +1,19 @@
 import React from "react";
 import PhotoListItem from "./PhotoListItem";
-import sampleDataForPhotoListItem from "./sampleDataForPhotoListItem";
-
 import "../styles/PhotoList.scss";
 
-const PhotoList = ({ numPhotos }) => (
-  <div className="photo-list">
-    {Array.from({ length: numPhotos }).map((_, index) => {
-      const sampleData = sampleDataForPhotoListItem[index];
-      return <PhotoListItem key={sampleData.id} photo={sampleData} />;
-    })}
-  </div>
-);
+const PhotoList = ({ photos, selectedTopic, numPhotos }) => {
+  const filteredPhotos = selectedTopic 
+    ? photos.filter(photo => photo.topicId === selectedTopic)
+    : photos.slice(0, numPhotos);
+
+  return (
+    <div className="photo-list">
+      {filteredPhotos.map((photo, index) => (
+        <PhotoListItem key={photo.id} photo={photo} />
+      ))}
+    </div>
+  );
+};
 
 export default PhotoList;

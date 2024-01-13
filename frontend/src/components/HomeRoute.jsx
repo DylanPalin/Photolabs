@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import PhotoList from './PhotoList';
 import TopNavigationBar from "./TopNavigationBar";
-import "./HomeRoute";
+import "../styles/HomeRoute.scss";
 
-// Note: Rendering a single component to build components in isolation
-const HomeRoute = () => (
-  <div className="home-route">
-    <TopNavigationBar />
-    <PhotoList numPhotos={3} />
-  </div>
-);
+const HomeRoute = ({ topics, photos }) => {
+  const [selectedTopic, setSelectedTopic] = useState(null);
+
+  const handleTopicClick = (topicId) => {
+    setSelectedTopic(topicId);
+  };
+
+  return (
+    <div className="home-route">
+      <TopNavigationBar onTopicClick={handleTopicClick} topics={topics}/>
+      <PhotoList photos={photos} selectedTopic={selectedTopic}/>
+    </div>
+  );
+};
 
 export default HomeRoute;
