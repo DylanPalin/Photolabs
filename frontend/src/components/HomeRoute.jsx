@@ -21,7 +21,7 @@ const HomeRoute = ({ topics, photos }) => {
 
   return (
     <div className="home-route">
-      <TopNavigationBar onTopicClick={handleTopicClick} topics={topics}/>
+      <TopNavigationBar onTopicClick={handleTopicClick} topics={topics} favoritePhotos={favoritePhotos} />
       <PhotoList favoritePhotos={favoritePhotos} photos={photos} selectedTopic={selectedTopic} onFavClick={handleFavClick}/>
     </div>
   );
