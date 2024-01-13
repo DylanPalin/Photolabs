@@ -10,7 +10,7 @@ const PhotoList = ({ photos, selectedTopic, numPhotos, onFavClick, favoritePhoto
   return (
     <div className="photo-list">
       {filteredPhotos.map((photo, index) => (
-        <PhotoListItem key={photo.id} photo={photo} onFavClick={onFavClick} favoritePhotos={favoritePhotos} />
+        <PhotoListItem key={photo.id} photo={photo} onFavClick={onFavClick} favoritePhotos={favoritePhotos} Photo/>
       ))}
     </div>
   );
