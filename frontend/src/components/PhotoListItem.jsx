@@ -2,8 +2,13 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({ photo, onFavClick, favoritePhotos, onPhotoClick }) => (
-  <div className="photo-list__item" onClick={onPhotoClick}>
+const PhotoListItem = ({ photo, onFavClick, favoritePhotos, onPhotoClick }) => {
+  const handleClick = () => {
+    console.log(photo);
+    onPhotoClick();
+  };
+return (
+  <div className="photo-list__item" onClick={handleClick}>
     <PhotoFavButton 
       isFavorited={favoritePhotos.includes(photo.id)}
       onFavClick={() => onFavClick(photo.id)}
@@ -30,5 +35,6 @@ const PhotoListItem = ({ photo, onFavClick, favoritePhotos, onPhotoClick }) => (
     </div>
   </div>
 );
+};
 
 export default PhotoListItem;

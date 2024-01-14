@@ -19,6 +19,7 @@ const HomeRoute = ({ topics, photos, onPhotoClick }) => {
     });
   };
 
+
   return (
     <div className="home-route">
       <TopNavigationBar onTopicClick={handleTopicClick} topics={topics} favoritePhotos={favoritePhotos} />
