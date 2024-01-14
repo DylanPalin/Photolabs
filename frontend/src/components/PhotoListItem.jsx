@@ -2,8 +2,8 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({ photo, onFavClick, favoritePhotos }) => (
-  <div className="photo-list__item">
+const PhotoListItem = ({ photo, onFavClick, favoritePhotos, onPhotoClick }) => (
+  <div className="photo-list__item" onClick={onPhotoClick}>
     <PhotoFavButton 
       isFavorited={favoritePhotos.includes(photo.id)}
       onFavClick={() => onFavClick(photo.id)}
