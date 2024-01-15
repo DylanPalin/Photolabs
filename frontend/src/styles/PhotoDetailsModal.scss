@@ -11,6 +11,10 @@
   border-radius: 12px;
 }
 
+.photo-details-modal.darkmode {
+  background-color: #1e1e1e;
+}
+
 .photo-details-modal__close-button {
   background-color: white;
   border: none;
@@ -30,8 +34,9 @@
 }
 
 .photo-details-modal__image {
-  max-width: 95%;
-  border-radius: 8px;
+  max-width: 75vh;
+  max-height: 50vh;
+  object-fit: contain;
 }
 
 .photo-details-modal__top-bar {

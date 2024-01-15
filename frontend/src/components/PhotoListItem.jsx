@@ -5,7 +5,7 @@ import PhotoFavButton from "./PhotoFavButton";
 const PhotoListItem = ({ photo, onFavClick, favoritePhotos, onPhotoClick }) => (
   <div className="photo-list__item" onClick={() => onPhotoClick(photo)}>
     <PhotoFavButton 
-      isFavorited={favoritePhotos.includes(photo.id)} 
+      isFavorited={favoritePhotos && favoritePhotos.includes(photo.id)} 
       onFavClick={() => onFavClick(photo.id)} 
     />
     <img
