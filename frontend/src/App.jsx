@@ -5,10 +5,11 @@ import photos from "./mocks/photos";
 import topics from "./mocks/topics";
 import PhotoDetailsModal from "./routes/PhotoDetailsModal";
 
-const App = () => {
+const App = ({ isFav }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
-  const [topicPhotos, setTopicPhotos] = useState([]);
+  const [topicPhotos, setTopicPhotos] = useState([null]);
+  const [favoritePhotos, setFavoritePhotos] = useState([null]);
 
   const handlePhotoClick = (photo) => {
     setSelectedPhoto(photo);
@@ -19,17 +20,39 @@ const App = () => {
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    if (selectedPhoto) {
-      const newTopicPhotos = photos.filter(photo => photo.topic === selectedPhoto.topic);
-      setTopicPhotos(newTopicPhotos);
+  const toggleFav = (id) => {
+    if (favoritePhotos.includes(id)) {
+    console.log("favs exist");
+    } else {
+      console.log("no favs");
     }
-  }, [selectedPhoto]);
-
+    setFavoritePhotos((prevFavorites) => {
+      if (prevFavorites.includes(id)) {
+        return prevFavorites.filter((favId) => favId !== id);
+      } else {
+        return [...prevFavorites, id];
+      }
+    });
+  };
+  
   return (
     <div className="App">
-      <HomeRoute topics={topics} photos={photos} onPhotoClick={handlePhotoClick}/>
-      {isModalOpen && <PhotoDetailsModal selectedPhoto={selectedPhoto} onClose={handleCloseModal} topicPhotos={topicPhotos} />}
+      <HomeRoute
+        isFav={isFav}
+        toggleFav={toggleFav}
+        topics={topics}
+        photos={photos}
+        onPhotoClick={handlePhotoClick}
+      />
+      {isModalOpen && (
+        <PhotoDetailsModal
+          selectedPhoto={selectedPhoto}
+          hideModal={handleCloseModal}
+          topicPhotos={topicPhotos}
+          isFav={isFav}
+          toggleFav={toggleFav}
+        />
+      )}
     </div>
   );
 };
