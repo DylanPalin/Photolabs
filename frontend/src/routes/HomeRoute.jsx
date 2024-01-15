@@ -4,11 +4,6 @@ import TopNavigationBar from "../components/TopNavigationBar";
 import "../styles/HomeRoute.scss";
 
 const HomeRoute = ({ onPhotoClick, toggleFav, isFav, navbarFavs, favoritePhotos }) => {
-  const [selectedTopic, setSelectedTopic] = useState(null);
-  const handleTopicClick = (topicId) => {
-    setSelectedTopic(topicId);
-  };
-
   return (
     <div className="home-route">
       <TopNavigationBar onTopicClick={handleTopicClick} navbarFavs={navbarFavs} favoritePhotos={favoritePhotos} topics={topics}/>
