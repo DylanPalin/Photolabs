@@ -3,14 +3,11 @@ import "../styles/TopNavigationBar.scss";
 import TopicList from "./TopicList";
 import FavBadge from "./FavBadge";
 
-const TopNavigation = ({ onTopicClick, topics, favoritePhotos }) => {
+const TopNavigation = ({ onTopicClick, topics, favoritePhotos, navbarFavs }) => {
   
   const [showTopic, setshowTopic] = useState(null);
-  const [isFavPhotoExist, setIsFavPhotoExist] = useState(false);
-
-  useEffect(() => {
-    setIsFavPhotoExist(favoritePhotos && favoritePhotos.length > 0);
-  }, [favoritePhotos]);
+  const [isFavPhotoExist, setIsFavPhotoExist] = useState(null);
+  
   
   const handleTopicClick = (topicId) => {
     setshowTopic(topicId);
@@ -21,7 +18,7 @@ const TopNavigation = ({ onTopicClick, topics, favoritePhotos }) => {
       <span className="top-nav-bar__logo">PhotoLabs</span>
       <div className="top-nav-bar__right">
         <TopicList onTopicClick={handleTopicClick} topics={topics} />
-        <FavBadge isFavPhotoExist={isFavPhotoExist} />
+        <FavBadge selected="true" navbarFavs={navbarFavs} />
         </div>
     </div>
   );

@@ -8,6 +8,7 @@ const PhotoListItem = ({ photo, toggleFav, isFav, onPhotoClick, favoritePhotos }
       <PhotoFavButton
         photo={photo}
         toggleFav={toggleFav}
+        isFav={isFav}
         favoritePhotos={favoritePhotos}
       />
       <img

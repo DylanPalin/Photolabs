@@ -19,15 +19,15 @@ const PhotoDetailsModal = ({ selectedPhoto, hideModal, toggleFav, darkMode }) =>
 
       <div className="photo-details-modal__images">
         <PhotoFavButton photo={selectedPhoto} toggleFav={toggleFav} darkMode={darkMode} />
-        <div className="photo-details-modal__image-wrapper">
-          <img className="photo-details-modal__image" src={url} alt={title} />
-        </div>
-        <div className="photo-details-modal__photographer-details"></div>
+        <img className="photo-details-modal__image" src={url} alt={title} />
         <div className="photo-details-modal__header">
-          <img className="photo-details-modal__photographer-profile" src={profile} alt={username} />
-          <div className="photo-details-modal__photographer-info">
-            <span className="photo-details-modal__photographer-name">{name}</span>
-            <span className="photo-details-modal__photographer-location">{location.city}, {location.country}</span>
+          <div className="photo-details-modal__photographer-details">
+          <img className="photo-details-modal__photographer-profile" src={profile} alt={username} />            
+            <div className="photo-details-modal__photographer-info">
+            <span>{user.name}</span>
+            <div className="photo-list__user-location">
+              {location.city}, {location.country}
+            </div>
           </div>
         </div>
         <p>Similar Photos</p>
@@ -36,7 +36,8 @@ const PhotoDetailsModal = ({ selectedPhoto, hideModal, toggleFav, darkMode }) =>
         <PhotoList className="photo-details-modal__images" toggleFav={toggleFav} darkMode={darkMode} />
       </div>
     </div>
-  )
+  </div>
+  );
 };
 
 export default PhotoDetailsModal;

@@ -9,7 +9,8 @@ const App = ({ isFav }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [topicPhotos, setTopicPhotos] = useState([null]);
-  const [favoritePhotos, setFavoritePhotos] = useState([null]);
+  const [favoritePhotos, setFavoritePhotos] = useState([]);
+  const [navbarFavs, setNavbarFavs] = useState(false);
 
   const handlePhotoClick = (photo) => {
     setSelectedPhoto(photo);
@@ -21,15 +22,14 @@ const App = ({ isFav }) => {
   };
 
   const toggleFav = (id) => {
-    if (favoritePhotos.includes(id)) {
-    console.log("favs exist");
-    } else {
-      console.log("no favs");
-    }
     setFavoritePhotos((prevFavorites) => {
       if (prevFavorites.includes(id)) {
+        console.log("unfavorited");
+        setNavbarFavs(false); // set navbarFavs to false when a photo is unfavorited
         return prevFavorites.filter((favId) => favId !== id);
       } else {
+        console.log("favorited");
+        setNavbarFavs(true); // set navbarFavs to true when a new photo is favorited
         return [...prevFavorites, id];
       }
     });
@@ -43,6 +43,7 @@ const App = ({ isFav }) => {
         topics={topics}
         photos={photos}
         onPhotoClick={handlePhotoClick}
+        navbarFavs={navbarFavs}
       />
       {isModalOpen && (
         <PhotoDetailsModal
