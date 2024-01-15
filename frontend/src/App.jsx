@@ -1,57 +1,41 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import HomeRoute from "./routes/HomeRoute";
 import "./App.scss";
-import photos from "./mocks/photos";
-import topics from "./mocks/topics";
+import useApplicationData from './hooks/useApplicationData';
 import PhotoDetailsModal from "./routes/PhotoDetailsModal";
 
 const App = ({ isFav }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-  const [topicPhotos, setTopicPhotos] = useState([null]);
-  const [favoritePhotos, setFavoritePhotos] = useState([]);
-  const [navbarFavs, setNavbarFavs] = useState(false);
+  const {
+    state: { isModalOpen, selectedPhoto, topicPhotos, darkMode, favoritePhotos, navbarFavs },
+    updateToFavPhotoIds,
+    setPhotoSelected,
+    onClosePhotoDetailsModal,
+    getTopicPhotos,
+    getAllPhotos,
+    setDarkMode
+  } = useApplicationData();
 
-  const handlePhotoClick = (photo) => {
-    setSelectedPhoto(photo);
-    setIsModalOpen(true);
-  };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+    // returns boolean to determine if heart is filled in or not
+    const isLiked = photoId => favoritePhotos.includes(photoId);
+    // returns boolean to determine if notification is displayed or not
+    const isFavPhotoExist = favoritePhotos.length > 0;
 
-  const toggleFav = (id) => {
-    setFavoritePhotos((prevFavorites) => {
-      if (prevFavorites.includes(id)) {
-        console.log("unfavorited");
-        setNavbarFavs(false); // set navbarFavs to false when a photo is unfavorited
-        return prevFavorites.filter((favId) => favId !== id);
-      } else {
-        console.log("favorited");
-        setNavbarFavs(true); // set navbarFavs to true when a new photo is favorited
-        return [...prevFavorites, id];
-      }
-    });
-  };
-  
   return (
     <div className="App">
       <HomeRoute
         isFav={isFav}
-        toggleFav={toggleFav}
-        topics={topics}
-        photos={photos}
-        onPhotoClick={handlePhotoClick}
+        toggleFav={updateToFavPhotoIds}
+        onPhotoClick={setPhotoSelected}
         navbarFavs={navbarFavs}
       />
       {isModalOpen && (
         <PhotoDetailsModal
+          favoritePhotos={favoritePhotos}
           selectedPhoto={selectedPhoto}
-          hideModal={handleCloseModal}
-          topicPhotos={topicPhotos}
+          hideModal={onClosePhotoDetailsModal}
           isFav={isFav}
-          toggleFav={toggleFav}
+          toggleFav={updateToFavPhotoIds}
         />
       )}
     </div>

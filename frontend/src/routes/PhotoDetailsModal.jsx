@@ -5,7 +5,7 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
-const PhotoDetailsModal = ({ selectedPhoto, hideModal, toggleFav, darkMode }) => {
+const PhotoDetailsModal = ({ selectedPhoto, hideModal, toggleFav, darkMode, favoritePhotos }) => {
   console.log(selectedPhoto);
   const { similar_photos: photos, location } = selectedPhoto;
   const { title, urls: { regular: url }, user } = selectedPhoto;
@@ -18,7 +18,7 @@ const PhotoDetailsModal = ({ selectedPhoto, hideModal, toggleFav, darkMode }) =>
       </button>
 
       <div className="photo-details-modal__images">
-        <PhotoFavButton photo={selectedPhoto} toggleFav={toggleFav} darkMode={darkMode} />
+        <PhotoFavButton photo={selectedPhoto} favoritePhotos={favoritePhotos} toggleFav={toggleFav} darkMode={darkMode} />
         <img className="photo-details-modal__image" src={url} alt={title} />
         <div className="photo-details-modal__header">
           <div className="photo-details-modal__photographer-details">
