@@ -2,27 +2,31 @@ import React from "react";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
-const PhotoList = ({ photos, dark, showModal, toggleLike, isLiked }) => {
+const PhotoList = ({ photos, dark, showModal, toggleFav, isLiked }) => {
+  // Check if photos is an object or an array
   if (typeof (photos) === 'object') {
     photos = Object.values(photos);
   }
 
+  // Create a template for each photo
   const template = photos.map((photo) => {
     return (
       <PhotoListItem
         key={photo.id}
         photo={photo}
-        toggleLike={toggleLike}
-        showModal={showModal}
+        photoId={photo.id}
+        toggleFav={toggleFav}
+        howModal={() => showModal(photo)}
         isLiked={isLiked}
         dark={dark}
       />
     );
   });
-
+  
+ // Return the template wrapped in a ul
   return (
     <ul className="photo-list">
-      {photoList}
+      {template}
     </ul>
   );
 };

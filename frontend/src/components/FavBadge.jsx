@@ -2,10 +2,12 @@ import React from 'react';
 import FavIcon from './FavIcon';
 import '../styles/FavBadge.scss';
 
-const FavBadge = ({ navbarFavs, onFavClick, isFav }) => {
+const FavBadge = ({ dark, setDark, ifFavPhotosExist }) => {
   return (
-    <div className='fav-badge' onClick={onFavClick}>
-      <FavIcon displayAlert={navbarFavs} />
+    <div className='fav-badge'>
+      <FavIcon displayAlert ={!!ifFavPhotosExist} selected={true} dark={dark}/>
+      <div className='dark-mode' onClick={setDark}>
+      </div>
     </div>
   )
 };

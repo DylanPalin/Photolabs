@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import PhotoList from '../components/PhotoList';
 import TopNavigationBar from "../components/TopNavigationBar";
 import "../styles/HomeRoute.scss";
 
-const HomeRoute = ({ onPhotoClick, toggleFav, favoritePhotos, topics, getTopicPhotos, photos }) => {
+const HomeRoute = ({ showModal, getAllPhotos, toggleFav, isLiked, ifFavPhotoExists, topics, getTopicPhotos, photos, dark, setDark}) => {
   return (
     <div className="home-route">
-      <TopNavigationBar onTopicClick={getTopicPhotos} getTopicPhotos={getTopicPhotos} topics={topics} />
-      <PhotoList photos={photos} favoritePhotos={favoritePhotos} getTopicPhotos={getTopicPhotos} toggleFav={toggleFav} onPhotoClick={onPhotoClick} dark={dark} />
+      <TopNavigationBar getAllPhotos={getAllPhotos} getTopicPhotos={getTopicPhotos} topics={topics} ifFavPhotoExists={ifFavPhotoExists} dark={dark} setDark={setDark} />
+      <PhotoList photos={photos} getTopicPhotos={getTopicPhotos} toggleFav={toggleFav} showModal={showModal} dark={dark} />
     </div>
   );
 };

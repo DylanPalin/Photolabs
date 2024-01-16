@@ -57,7 +57,7 @@ const reducer = (state, action) => {
   }
 }
 
-export default function useApplicationData() {
+export const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
   const updateToFavPhotoIds = (photoId) =>

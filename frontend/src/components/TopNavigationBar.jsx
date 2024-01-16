@@ -4,7 +4,7 @@ import FavBadge from "./FavBadge";
 import "../styles/TopNavigationBar.scss";
 
 
-const TopNavigation = ({ getTopicPhotos, getAllPhotos, topics, ifFavPhotoExists, dark, SetDark }) => {
+const TopNavigation = ({ getTopicPhotos, getAllPhotos, topics, ifFavPhotoExists, dark, setDark }) => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo" onClick={getAllPhotos}>PhotoLabs</span>

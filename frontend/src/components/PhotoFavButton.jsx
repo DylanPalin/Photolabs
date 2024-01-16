@@ -1,23 +1,15 @@
-import React, { useCallback, useState } from "react";
-
+import React from "react";
 import FavIcon from "./FavIcon";
 import "../styles/PhotoFavButton.scss";
 
-function PhotoFavButton({ photo, toggleFav, favoritePhotos }) {
-  const id = photo.id;
-  const isFav = function() {
-    if (favoritePhotos) {
-      return false;
-    } else if (favoritePhotos.includes(photo.id)) {
-      return true;
-    };
-  };
+function PhotoFavButton({ isLiked, toggleFav, photoId, dark }) {
   return (
-    <div className={`photo-list__fav-icon ${isFav ? "favorited" : ""}`} onClick={() => toggleFav(id)}>
+    <div className={`photo-list__fav-icon ${dark}`} onClick={() => toggleLike(photoId)}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={isFav} />
+        <FavIcon selected={isLiked(photoId)} dark={dark}></FavIcon>
       </div>
     </div>
   );
 };
+
 export default PhotoFavButton;
