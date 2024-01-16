@@ -3,13 +3,17 @@ import TopicListItem from "./TopicListItem";
 import "../styles/TopicList.scss";
 
 
-const TopicList = ({ onTopicClick, topics }) => {
+const TopicList = ({ getTopicPhotos, topics }) => {
+  const topicList = topics.map(topic => {
+    return (
+      <TopicListItem key={topic.id} topic={topic} getTopicPhotos={getTopicPhotos} />
+    );
+  });
+
   return (
-    <ul className="top-nav-bar__topic-list">
-      {Object.values(topics).map((topic, index) => {
-        return <TopicListItem key={index} topic={topic} />;
-      })}
-    </ul>
+    <div className="top-nav-bar__topic-list" >
+      {topicList}
+    </div>
   );
 };
 
