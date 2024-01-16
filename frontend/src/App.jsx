@@ -1,45 +1,51 @@
 import React from "react";
 import HomeRoute from "./routes/HomeRoute";
-import "./App.scss";
 import useApplicationData from './hooks/useApplicationData';
 import PhotoDetailsModal from "./routes/PhotoDetailsModal";
+import "./App.scss";
 
-const App = ({ isFav }) => {
+const App = () => {
   const {
-    state: { isModalOpen, selectedPhoto, topicPhotos, darkMode, favoritePhotos, navbarFavs },
+    state: { likes, modal, selectedPhoto, photoData, topicData, dark },
     updateToFavPhotoIds,
     setPhotoSelected,
     onClosePhotoDetailsModal,
     getTopicPhotos,
     getAllPhotos,
-    setDarkMode
+    setDark
   } = useApplicationData();
 
+  // returns boolean to determine if heart is filled in or not
+  const isLiked = photoId => likes.includes(photoId);
+  // returns boolean to determine if notification is displayed or not
+  const ifFavPhotosExist = likes.length > 0;
 
-    // returns boolean to determine if heart is filled in or not
-    const isLiked = photoId => favoritePhotos.includes(photoId);
-    // returns boolean to determine if notification is displayed or not
-    const isFavPhotoExist = favoritePhotos.length > 0;
-
-  return (
-    <div className="App">
-      <HomeRoute
-        isFav={isFav}
-        toggleFav={updateToFavPhotoIds}
-        onPhotoClick={setPhotoSelected}
-        navbarFavs={navbarFavs}
-      />
-      {isModalOpen && (
-        <PhotoDetailsModal
-          favoritePhotos={favoritePhotos}
-          selectedPhoto={selectedPhoto}
-          hideModal={onClosePhotoDetailsModal}
-          isFav={isFav}
+    return (
+      <div className="App">
+        <HomeRoute
+          isLiked={isLiked}
           toggleFav={updateToFavPhotoIds}
+          ifFavPhotosExist={ifFavPhotosExist}
+          photos={photoData}
+          topics={topicData}
+          getTopicPhotos={getTopicPhotos}
+          getAllPhotos={getAllPhotos}
+          showModal={setPhotoSelected}
+          dark={dark}
+          setDark={setDark}
         />
-      )}
-    </div>
-  );
-};
+        {modal && (
+          <PhotoDetailsModal
+            selectedPhoto={selectedPhoto}
+            hideModal={onClosePhotoDetailsModal}
+            showModal={setPhotoSelected}
+            isLiked={isLiked}
+            toggleFav={updateToFavPhotoIds}
+            darkMode={setDarkMode}
+          />
+        )}
+      </div>
+    );
+  };
 
-export default App;
+  export default App;
