@@ -1,6 +1,6 @@
 import { useReducer, useEffect } from "react";
 
-const INITIAL_STATE = {
+const initialState = {
   likes: [],
   selectedPhoto: null,
   selectedTopic: null,
@@ -30,6 +30,7 @@ const reducer = (state, action) => {
       return { ...state, likes: [...state.likes, photoId] };
 
     case ACTIONS.SELECT_PHOTO:
+        console.log(state)      
       return { ...state, selectedPhoto: action.payload, modal: true };
 
     case ACTIONS.SELECT_TOPIC:
@@ -58,7 +59,7 @@ const reducer = (state, action) => {
 }
 
 export const useApplicationData = () => {
-  const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const updateToFavPhotoIds = (photoId) =>
     dispatch({ type: ACTIONS.TOGGLE_LIKE, payload: photoId });
@@ -67,7 +68,7 @@ export const useApplicationData = () => {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photo });
   };
 
-  const getPhotosByTopic = (topicId) =>
+  const getTopicPhotos = (topicId) =>
     dispatch({ type: ACTIONS.SELECT_TOPIC, payload: topicId });
 
   const onClosePhotoDetailsModal = () => {
@@ -110,7 +111,7 @@ export const useApplicationData = () => {
     state,
     updateToFavPhotoIds,
     setPhotoSelected,
-    getPhotosByTopic,
+    getTopicPhotos,
     getAllPhotos,
     onClosePhotoDetailsModal,
     setDark

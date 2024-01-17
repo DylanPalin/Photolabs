@@ -5,38 +5,31 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
-const PhotoDetailsModal = ({ selectedPhoto, hideModal, toggleFav, darkMode, favoritePhotos }) => {
-  console.log(selectedPhoto);
-  const { similar_photos: photos, location } = selectedPhoto;
-  const { title, urls: { regular: url }, user } = selectedPhoto;
-  const { username, name, profile } = user;
-
+const PhotoDetailsModal = ({ isLiked, toggleFav, hideModal, selectedPhoto, dark }) => {
+  const { id, urls, user, location, similar_photos } = selectedPhoto;
   return (
-    <div className={`photo-details-modal ${darkMode}`}>
+    <div className={`photo-details-modal ${dark}`}>
       <button className="photo-details-modal__close-button" onClick={hideModal}>
         <img src={closeSymbol} alt="close" />
       </button>
-
       <div className="photo-details-modal__images">
-        <PhotoFavButton photo={selectedPhoto} favoritePhotos={favoritePhotos} toggleFav={toggleFav} darkMode={darkMode} />
-        <img className="photo-details-modal__image" src={url} alt={title} />
-        <div className="photo-details-modal__header">
-          <div className="photo-details-modal__photographer-details">
-          <img className="photo-details-modal__photographer-profile" src={profile} alt={username} />            
-            <div className="photo-details-modal__photographer-info">
+        <PhotoFavButton isLiked={isLiked} toggleFav={toggleFav} photoId={id} dark={dark}></PhotoFavButton>
+        <img className="photo-details-modal__image" src={urls.regular} alt={`Image taken in ${location.city}, ${location.country}`}></img>
+        <div className="photo-details-modal__photographer-details">
+          <img className="photo-list__user-profile" src={user.profile} alt={`Profile for ${user.username}`}></img>
+          <div className="photo-list__user-info">
             <span>{user.name}</span>
             <div className="photo-list__user-location">
               {location.city}, {location.country}
             </div>
           </div>
         </div>
-        <p>Similar Photos</p>
+        <p className='photo-details-modal__header'>Similar Photos</p>
       </div>
-      <div className="photo-details-modal__top-bar">
-        <PhotoList className="photo-details-modal__images" toggleFav={toggleFav} darkMode={darkMode} />
+      <div className='photo-details-modal__top-bar'>
+        <PhotoList isLiked={isLiked} toggleFav={toggleFav} photos={similar_photos} dark={dark} />
       </div>
     </div>
-  </div>
   );
 };
 

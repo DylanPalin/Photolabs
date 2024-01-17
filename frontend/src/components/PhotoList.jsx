@@ -4,19 +4,19 @@ import "../styles/PhotoList.scss";
 
 const PhotoList = ({ photos, dark, showModal, toggleFav, isLiked }) => {
   // Check if photos is an object or an array
-  if (typeof (photos) === 'object') {
+  if (typeof(photos) === 'object') {
     photos = Object.values(photos);
   }
 
   // Create a template for each photo
-  const template = photos.map((photo) => {
+  const photoList = photos.map(photo => {
     return (
       <PhotoListItem
         key={photo.id}
         photo={photo}
         photoId={photo.id}
         toggleFav={toggleFav}
-        howModal={() => showModal(photo)}
+        showModal={() => showModal(photo)}
         isLiked={isLiked}
         dark={dark}
       />
@@ -26,7 +26,7 @@ const PhotoList = ({ photos, dark, showModal, toggleFav, isLiked }) => {
  // Return the template wrapped in a ul
   return (
     <ul className="photo-list">
-      {template}
+      {photoList}
     </ul>
   );
 };

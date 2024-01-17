@@ -2,12 +2,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   padding: 8px;
-  margin-right: 1.5em;
-  -webkit-box-shadow: 0 4px 6px -6px #222;
-  -moz-box-shadow: 0 4px 6px -6px #222;
-  box-shadow: 0 4px 6px -6px #222;
+  align-items: center;
+  -webkit-box-shadow: 0 4px 6px -6px #000000;
+  -moz-box-shadow: 0 4px 6px -6px #000000;
+  box-shadow: 0 4px 6px -6px #000000;
   height: 72px;
 }
 
@@ -15,13 +14,7 @@
   text-decoration: overline;
   font-weight: 500;
   font-size: 24px;
-  color: #111;
   text-underline-position: auto;
   margin-left: 24px;
-}
-
-.top-nav-bar__right {
-  display: flex;
-  justify-content: space-between;
-  flex-grow: 1;
+  cursor: pointer;
 }

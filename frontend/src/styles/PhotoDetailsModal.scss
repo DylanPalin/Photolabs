@@ -1,7 +1,7 @@
-
+@import '_color-themes';
 
 .photo-details-modal {
-  background-color: white;
+  background-color: $lightest-grey;
   box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
   position: fixed;
   top: 43%;
@@ -14,7 +14,7 @@
 }
 
 .photo-details-modal.dark {
-  background-color: white;
+  background-color: $darkest-grey;
 }
 
 .photo-details-modal__close-button {

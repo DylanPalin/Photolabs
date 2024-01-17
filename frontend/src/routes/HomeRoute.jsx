@@ -3,11 +3,11 @@ import PhotoList from '../components/PhotoList';
 import TopNavigationBar from "../components/TopNavigationBar";
 import "../styles/HomeRoute.scss";
 
-const HomeRoute = ({ showModal, getAllPhotos, toggleFav, isLiked, ifFavPhotoExists, topics, getTopicPhotos, photos, dark, setDark}) => {
+const HomeRoute = ({ showModal, getAllPhotos, toggleFav, isLiked, ifFavPhotoExist, topics, getTopicPhotos, photos, dark, setDark}) => {
   return (
     <div className="home-route">
-      <TopNavigationBar getAllPhotos={getAllPhotos} getTopicPhotos={getTopicPhotos} topics={topics} ifFavPhotoExists={ifFavPhotoExists} dark={dark} setDark={setDark} />
-      <PhotoList photos={photos} getTopicPhotos={getTopicPhotos} toggleFav={toggleFav} showModal={showModal} dark={dark} />
+      <TopNavigationBar getAllPhotos={getAllPhotos} getTopicPhotos={getTopicPhotos} topics={topics} ifFavPhotoExist={ifFavPhotoExist} dark={dark} setDark={setDark} isLiked={isLiked} />
+      <PhotoList photos={photos} getTopicPhotos={getTopicPhotos} toggleFav={toggleFav} showModal={showModal} dark={dark} isLiked={isLiked} />
     </div>
   );
 };

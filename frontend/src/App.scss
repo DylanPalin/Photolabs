@@ -1,5 +1,12 @@
+@import './styles/color-themes';
+
 .App {
-  margin: 24px;
+  background-color: $lightest-grey;
+}
+
+.App.dark {
+  color: $white;
+  background-color: $darkest-grey;
 }
 
 .App-logo {
