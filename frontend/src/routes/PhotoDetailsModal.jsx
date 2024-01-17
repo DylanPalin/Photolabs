@@ -12,7 +12,8 @@ const PhotoDetailsModal = ({ isFav, toggleFav, hideModal, selectedPhoto, dark })
       <button className="photo-details-modal__close-button" onClick={hideModal}>
         <img src={closeSymbol} alt="close" />
       </button>
-      <div className="photo-details-modal__images">
+      <div className="photo-details-modal__largeview">
+        <div className="photo-details-modal__images">
         <PhotoFavButton isFav={isFav} toggleFav={toggleFav} photoId={id} dark={dark}></PhotoFavButton>
         <img className="photo-details-modal__image" src={urls.regular} alt={`Image taken in ${location.city}, ${location.country}`}></img>
         <div className="photo-details-modal__photographer-details">
@@ -24,8 +25,9 @@ const PhotoDetailsModal = ({ isFav, toggleFav, hideModal, selectedPhoto, dark })
             </div>
           </div>
         </div>
-        <p className='photo-details-modal__header'>Similar Photos</p>
       </div>
+      </div>
+      <p className='photo-details-modal__header'>Similar Photos</p>
       <div className='photo-details-modal__top-bar'>
         <PhotoList isFav={isFav} toggleFav={toggleFav} photos={similar_photos} dark={dark} />
       </div>

@@ -17,6 +17,12 @@
   background-color: $darkest-grey;
 }
 
+.photo-details-modal__largeview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .photo-details-modal__close-button {
   border: none;
   text-align: center;
@@ -27,16 +33,6 @@
   margin-left: 16px;
   margin-top: 16px;
   background-color: transparent;
-}
-
-.photo-details-modal__images {
-  margin-left: 50px;
-  margin-top: 8px;
-}
-
-.photo-details-modal__image {
-  width: 95%;
-  border-radius: 8px;
 }
 
 .photo-details-modal__user-profile {
@@ -59,10 +55,13 @@
 
 .photo-details-modal__photographer-details {
   display: flex;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .photo-details-modal__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 18px;
   font-weight: 500;
   margin-top: 24px;
