@@ -1,1 +1,30 @@
-{"proxy": "http://localhost:8001"}
+{
+  "proxy": "http://localhost:8001",
+  "name": "photolabs-starter",
+  "description": "Photolabs is a react based single-page app that allows users to explore categorized photos.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DylanPalin/photolabs-starter.git"
+  },
+  "keywords": [
+    "photo",
+    "labs",
+    "photolabs",
+    "react",
+    "axios",
+    "lhl",
+    "lighthouse",
+    "labs"
+  ],
+  "author": "Dylan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DylanPalin/photolabs-starter/issues"
+  },
+  "homepage": "https://github.com/DylanPalin/photolabs-starter#readme"
+}

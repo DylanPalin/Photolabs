@@ -6,7 +6,7 @@ import "./App.scss";
 
 const App = () => {
   const {
-    state: { likes, modal, selectedPhoto, photoData, topicData, dark },
+    state: { dark, likes, modal, photoData, selectedPhoto, topicData },
     updateToFavPhotoIds,
     setPhotoSelected,
     onClosePhotoDetailsModal,
@@ -22,32 +22,32 @@ const App = () => {
   // returns boolean to determine if notification is displayed or not
   const ifFavPhotoExist = likes.length > 0;
 
-    return (
-      <div className={`App ${dark ? 'dark' : ''}`}>
-        <HomeRoute
+  return (
+    <div className={`App ${dark ? 'dark' : ''}`}>
+      <HomeRoute
+        isFav={isFav}
+        toggleFav={updateToFavPhotoIds}
+        ifFavPhotoExist={ifFavPhotoExist}
+        photos={photoData}
+        topics={topicData}
+        getTopicPhotos={getTopicPhotos}
+        getAllPhotos={getAllPhotos}
+        showModal={setPhotoSelected}
+        dark={dark}
+        setDark={setDark}
+      />
+      {modal && (
+        <PhotoDetailsModal
+          selectedPhoto={selectedPhoto}
+          hideModal={onClosePhotoDetailsModal}
+          showModal={setPhotoSelected}
           isFav={isFav}
           toggleFav={updateToFavPhotoIds}
-          ifFavPhotoExist={ifFavPhotoExist}
-          photos={photoData}
-          topics={topicData}
-          getTopicPhotos={getTopicPhotos}
-          getAllPhotos={getAllPhotos}
-          showModal={setPhotoSelected}
           dark={dark}
-          setDark={setDark}
         />
-        {modal && (
-          <PhotoDetailsModal
-            selectedPhoto={selectedPhoto}
-            hideModal={onClosePhotoDetailsModal}
-            showModal={setPhotoSelected}
-            isFav={isFav}
-            toggleFav={updateToFavPhotoIds}
-            dark={dark}
-          />
-        )}
-      </div>
-    );
-  };
+      )}
+    </div>
+  );
+};
 
-  export default App;
+export default App;

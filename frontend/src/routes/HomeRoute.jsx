@@ -4,36 +4,36 @@ import TopNavigationBar from "../components/TopNavigationBar";
 import "../styles/HomeRoute.scss";
 
 const HomeRoute = ({
-  showModal,
-  getAllPhotos,
-  toggleFav,
-  isFav,
-  ifFavPhotoExist,
-  topics,
-  getTopicPhotos,
-  photos,
   dark,
+  getAllPhotos,
+  getTopicPhotos,
+  ifFavPhotoExist,
+  isFav,
+  photos,
   setDark,
+  showModal,
+  toggleFav,
+  topics,
 }) => {
   
   return (
     <div className="home-route">
       <TopNavigationBar
+        dark={dark}
         getAllPhotos={getAllPhotos}
         getTopicPhotos={getTopicPhotos}
-        topics={topics}
         ifFavPhotoExist={ifFavPhotoExist}
-        dark={dark}
-        setDark={setDark}
         isFav={isFav}
+        setDark={setDark}
+        topics={topics}
       />
       <PhotoList
-        photos={photos}
-        getTopicPhotos={getTopicPhotos}
-        toggleFav={toggleFav}
-        showModal={showModal}
         dark={dark}
+        getTopicPhotos={getTopicPhotos}
         isFav={isFav}
+        photos={photos}
+        showModal={showModal}
+        toggleFav={toggleFav}
       />
     </div>
   );
