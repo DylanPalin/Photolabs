@@ -9,8 +9,10 @@ import MoonIcon from "./MoonIcon";
 const TopNavigation = ({ getTopicPhotos, getAllPhotos, topics, ifFavPhotoExist, dark, setDark }) => {
   return (
     <div className="top-nav-bar">
+      <div className="top-nav-bar__left">
       <span className="top-nav-bar__logo" onClick={getAllPhotos}>PhotoLabs</span><div className='dark-mode' onClick={setDark}>
       {dark ? <SunIcon /> : <MoonIcon />}
+      </div>
       </div>
       <div className="top-nav-bar__right">
         <TopicList getTopicPhotos={getTopicPhotos} topics={topics} />

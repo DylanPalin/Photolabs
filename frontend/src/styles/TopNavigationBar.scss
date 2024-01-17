@@ -18,3 +18,19 @@
   margin-left: 24px;
   cursor: pointer;
 }
+
+.top-nav-bar__left {
+  display: flex;
+  align-items: center;
+}
+
+.top-nav-bar__right {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.dark-mode {
+  flex-direction: row;
+  justify-content: start;
+  padding-left: .5vw;
+}

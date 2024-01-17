@@ -17,6 +17,7 @@ const ACTIONS = {
   CLOSE_PHOTO: "CLOSE_PHOTO",
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
   SET_TOPIC_DATA: "SET_TOPIC_DATA",
+  SET_TOPIC_PHOTO_DATA: "SET_TOPIC_PHOTO_DATA",
   TOGGLE_DARK_MODE: "TOGGLE_DARK_MODE",
 };
 
@@ -32,6 +33,9 @@ const reducer = (state, action) => {
     case ACTIONS.SELECT_PHOTO:
         console.log(state)      
       return { ...state, selectedPhoto: action.payload, modal: true };
+
+    case ACTIONS.SELECT_TOPIC_PHOTO_DATA:
+      return { ...state, topicPhotos: action.payload }
 
     case ACTIONS.SELECT_TOPIC:
       return { ...state, selectedTopic: action.payload };
@@ -102,7 +106,7 @@ export const useApplicationData = () => {
       fetch(`/api/topics/${state.selectedTopic}`)
         .then((res) => res.json())
         .then((photosByTopic) =>
-          dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photosByTopic })
+          dispatch({ type: ACTIONS.SET_TOPIC_PHOTO_DATA, payload: photosByTopic })
         );
     }
   }, [state.selectedTopic]);
