@@ -23,14 +23,14 @@ Photolabs is a react based single-page app that allows users to explore categori
 4. Once the application is running, you can access it through your web browser at `http://localhost:3000`.
 
 
-## [Frontend] Running Webpack Development Server
+## [Frontend] Running Webpack Dev Server
 
 ```sh
 cd frontend
 npm start
 ```
 
-## [Backend] Running Backend Servier
+## [Backend] Running Backend Server
 
 Read `backend/readme` for further setup details.
 
