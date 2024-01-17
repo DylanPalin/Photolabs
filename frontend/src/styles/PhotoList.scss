@@ -1,3 +1,5 @@
+@import './color-themes';
+
 .photo-list {
   display: flex;
   flex-wrap: wrap;
@@ -5,7 +7,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  border-top: .2em solid #eee;
+  border-top: .1em solid $white;
 }
 
  .photo-list:after {

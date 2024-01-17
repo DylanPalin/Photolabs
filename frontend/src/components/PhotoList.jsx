@@ -2,7 +2,7 @@ import React from "react";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
-const PhotoList = ({ photos, dark, showModal, toggleFav, isLiked }) => {
+const PhotoList = ({ photos, dark, showModal, toggleFav, isFav }) => {
   // Check if photos is an object or an array
   if (typeof(photos) === 'object') {
     photos = Object.values(photos);
@@ -17,7 +17,7 @@ const PhotoList = ({ photos, dark, showModal, toggleFav, isLiked }) => {
         photoId={photo.id}
         toggleFav={toggleFav}
         showModal={() => showModal(photo)}
-        isLiked={isLiked}
+        isFav={isFav}
         dark={dark}
       />
     );

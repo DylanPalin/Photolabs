@@ -1,13 +1,40 @@
 import React from "react";
-import PhotoList from '../components/PhotoList';
+import PhotoList from "../components/PhotoList";
 import TopNavigationBar from "../components/TopNavigationBar";
 import "../styles/HomeRoute.scss";
 
-const HomeRoute = ({ showModal, getAllPhotos, toggleFav, isLiked, ifFavPhotoExist, topics, getTopicPhotos, photos, dark, setDark}) => {
+const HomeRoute = ({
+  showModal,
+  getAllPhotos,
+  toggleFav,
+  isFav,
+  ifFavPhotoExist,
+  topics,
+  getTopicPhotos,
+  photos,
+  dark,
+  setDark,
+}) => {
+  
   return (
     <div className="home-route">
-      <TopNavigationBar getAllPhotos={getAllPhotos} getTopicPhotos={getTopicPhotos} topics={topics} ifFavPhotoExist={ifFavPhotoExist} dark={dark} setDark={setDark} isLiked={isLiked} />
-      <PhotoList photos={photos} getTopicPhotos={getTopicPhotos} toggleFav={toggleFav} showModal={showModal} dark={dark} isLiked={isLiked} />
+      <TopNavigationBar
+        getAllPhotos={getAllPhotos}
+        getTopicPhotos={getTopicPhotos}
+        topics={topics}
+        ifFavPhotoExist={ifFavPhotoExist}
+        dark={dark}
+        setDark={setDark}
+        isFav={isFav}
+      />
+      <PhotoList
+        photos={photos}
+        getTopicPhotos={getTopicPhotos}
+        toggleFav={toggleFav}
+        showModal={showModal}
+        dark={dark}
+        isFav={isFav}
+      />
     </div>
   );
 };

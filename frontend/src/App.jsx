@@ -16,18 +16,18 @@ const App = () => {
   } = useApplicationData();
 
   // returns boolean to determine if heart is filled in or not
-  const isLiked = photoId => {
+  const isFav = photoId => {
     return likes.includes(photoId);
   };
   // returns boolean to determine if notification is displayed or not
-  const ifFavPhotosExist = likes.length > 0;
+  const ifFavPhotoExist = likes.length > 0;
 
     return (
-      <div className="App">
+      <div className={`App ${dark ? 'dark' : ''}`}>
         <HomeRoute
-          isLiked={isLiked}
+          isFav={isFav}
           toggleFav={updateToFavPhotoIds}
-          ifFavPhotosExist={ifFavPhotosExist}
+          ifFavPhotoExist={ifFavPhotoExist}
           photos={photoData}
           topics={topicData}
           getTopicPhotos={getTopicPhotos}
@@ -41,7 +41,7 @@ const App = () => {
             selectedPhoto={selectedPhoto}
             hideModal={onClosePhotoDetailsModal}
             showModal={setPhotoSelected}
-            isLiked={isLiked}
+            isFav={isFav}
             toggleFav={updateToFavPhotoIds}
             dark={dark}
           />
