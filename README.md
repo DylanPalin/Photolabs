@@ -10,6 +10,7 @@ Photolabs is a react based single-page app that allows users to explore categori
 - Several categories to choose from.
 - Photolabs logo resets list to all categories.
 - Dark mode can be toggled via moon icon.
+
 ## Screenshots 
 
 !["Explore Page"](https://github.com/DylanPalin/photolabs-starter/blob/main/docs/explorepage.png?raw=true)
