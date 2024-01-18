@@ -1,0 +1,36 @@
+@import '_color-themes';
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  color: $white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+
+
+  &.dark {
+    background-color: $darkest-grey;
+  }
+
+input {
+  width: 66vw;
+  height: 1em;
+  padding: 1em;
+  border: 1px solid $white;
+  border-radius: 8px;
+}
+
+.icon {
+  padding-right: .5em;
+  margin-left: -1.9em;
+  margin-top: .2em;
+}
+
+}

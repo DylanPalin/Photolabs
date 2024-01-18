@@ -2,38 +2,43 @@ import React from "react";
 import PhotoList from "../components/PhotoList";
 import TopNavigationBar from "../components/TopNavigationBar";
 import "../styles/HomeRoute.scss";
+import SearchBar from "components/SearchBar";
 
 const HomeRoute = ({
-  dark,
-  getAllPhotos,
-  getTopicPhotos,
-  ifFavPhotoExist,
-  isFav,
-  photos,
-  setDark,
   showModal,
+  getAllPhotos,
   toggleFav,
+  isFav,
+  ifFavPhotoExist,
   topics,
+  getTopicPhotos,
+  photos,
+  dark,
+  setDark,
+  searchReq,
 }) => {
   
   return (
     <div className="home-route">
       <TopNavigationBar
-        dark={dark}
         getAllPhotos={getAllPhotos}
         getTopicPhotos={getTopicPhotos}
-        ifFavPhotoExist={ifFavPhotoExist}
-        isFav={isFav}
-        setDark={setDark}
         topics={topics}
-      />
-      <PhotoList
+        ifFavPhotoExist={ifFavPhotoExist}
         dark={dark}
-        getTopicPhotos={getTopicPhotos}
+        setDark={setDark}
         isFav={isFav}
+      />
+      <div className="searchbar">
+      <SearchBar dark={dark} searchReq={searchReq} />
+      </div>
+      <PhotoList
         photos={photos}
-        showModal={showModal}
+        getTopicPhotos={getTopicPhotos}
         toggleFav={toggleFav}
+        showModal={showModal}
+        dark={dark}
+        isFav={isFav}
       />
     </div>
   );

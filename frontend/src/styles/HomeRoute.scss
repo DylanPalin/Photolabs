@@ -3,3 +3,11 @@
   margin: auto;
   padding-top: 24px;
 }
+
+.searchbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 24px;
+  padding-bottom: 2px;
+}

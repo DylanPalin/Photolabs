@@ -50,6 +50,7 @@ const reducer = (state, action) => {
       return { ...state, topicData: action.payload };
     // On topic click, the topic data is set to topics that belong to that topic.
 
+
     case ACTIONS.TOGGLE_DARK_MODE:
       if (state.dark === "dark") {
         return { ...state, dark: "" };
@@ -81,8 +82,8 @@ export const useApplicationData = () => {
   };
 
   const setDark = () => dispatch({ type: ACTIONS.TOGGLE_DARK_MODE });
-  // Dark mode toggle
 
+  
   const getAllPhotos = () => {
     fetch(`/api/photos`)
       .then((res) => res.json())
@@ -90,6 +91,14 @@ export const useApplicationData = () => {
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData })
       );
   };
+
+  const handleSearchRequest = (searchTerm) => {
+    console.log('searchTerm', searchTerm)
+    fetch(`/api/photos/search?term=${searchTerm}`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+  }
 
   useEffect(() => {
     getAllPhotos();
@@ -113,6 +122,7 @@ export const useApplicationData = () => {
     }
   }, [state.selectedTopic]);
 
+
   return {
     state,
     updateToFavPhotoIds,
@@ -121,5 +131,6 @@ export const useApplicationData = () => {
     getAllPhotos,
     onClosePhotoDetailsModal,
     setDark,
+    handleSearchRequest
   };
 };

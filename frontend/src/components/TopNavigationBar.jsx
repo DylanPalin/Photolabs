@@ -5,7 +5,6 @@ import "../styles/TopNavigationBar.scss";
 import SunIcon from "./SunIcon";
 import MoonIcon from "./MoonIcon";
 
-
 const TopNavigation = ({ getTopicPhotos, getAllPhotos, topics, ifFavPhotoExist, dark, setDark }) => {
   return (
     <div className="top-nav-bar">

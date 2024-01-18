@@ -1,12 +1,13 @@
 const router = require("express").Router();
 
 module.exports = db => {
-  router.get("/photos", (request, response) => {
+  router.get("/api/photos", (request, response) => {
     const protocol = request.protocol;
     const host = request.hostname;
     const port = process.env.PORT || 8001;
     const serverUrl = `${protocol}://${host}:${port}`;
 
+    // Main page API endpoint
     db.query(`
       SELECT 
       json_agg(
@@ -59,6 +60,8 @@ module.exports = db => {
       response.json(rows[0].photo_data);
     });
   });
+
+
 
   return router;
 };

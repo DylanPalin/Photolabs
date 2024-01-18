@@ -12,7 +12,9 @@ const App = () => {
     onClosePhotoDetailsModal,
     getTopicPhotos,
     getAllPhotos,
-    setDark
+    setDark,
+    handleSearchRequest,
+    setSearchData
   } = useApplicationData();
 
   // returns boolean to determine if heart is filled in or not
@@ -35,6 +37,7 @@ const App = () => {
         showModal={setPhotoSelected}
         dark={dark}
         setDark={setDark}
+        searchReq={handleSearchRequest}
       />
       {modal && (
         <PhotoDetailsModal
