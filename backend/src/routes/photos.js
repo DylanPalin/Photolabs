@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 module.exports = db => {
-  router.get("/api/photos", (request, response) => {
+  router.get("/photos", (request, response) => {
     const protocol = request.protocol;
     const host = request.hostname;
     const port = process.env.PORT || 8001;

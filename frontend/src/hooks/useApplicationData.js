@@ -82,7 +82,6 @@ export const useApplicationData = () => {
   };
 
   const setDark = () => dispatch({ type: ACTIONS.TOGGLE_DARK_MODE });
-
   
   const getAllPhotos = () => {
     fetch(`/api/photos`)
@@ -91,13 +90,14 @@ export const useApplicationData = () => {
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData })
       );
   };
-
-  const handleSearchRequest = (searchTerm) => {
-    console.log('searchTerm', searchTerm)
-    fetch(`/api/photos/search?term=${searchTerm}`)
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error:', error));
+  
+  const handleSearchRequest = (searchReq) => {
+    console.log("searchTerm", searchTerm);
+    fetch(`/api/photos/search/${searchTerm}`)
+      .then((res) => res.json())
+      .then((photoData) =>
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData })
+      );
   }
 
   useEffect(() => {
@@ -131,6 +131,5 @@ export const useApplicationData = () => {
     getAllPhotos,
     onClosePhotoDetailsModal,
     setDark,
-    handleSearchRequest
   };
 };

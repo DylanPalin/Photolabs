@@ -14,7 +14,6 @@ const App = () => {
     getAllPhotos,
     setDark,
     handleSearchRequest,
-    setSearchData
   } = useApplicationData();
 
   // returns boolean to determine if heart is filled in or not
